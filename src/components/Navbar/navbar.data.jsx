@@ -1,24 +1,29 @@
 import React from "react";
+
 import HomeIcon from "@mui/icons-material/Home";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
 export const navbarData = [
   {
+    to: "/",
     title: "Home",
-    icon: <HomeIcon fontSize="large" />,
+    icon: <HomeIcon fontSize="large" sx={{ color: "#6d4c41" }} />,
   },
   {
+    to: "/currencies",
     title: "Currencies",
-    icon: <MonetizationOnOutlinedIcon fontSize="large" />,
+    icon: <MonetizationOnIcon fontSize="large" sx={{ color: "#00cc66" }} />,
   },
   {
+    to: "/exchanges",
     title: "Exchanges",
-    icon: <SwapHorizIcon fontSize="large" />,
+    icon: <SwapHorizIcon fontSize="large" sx={{ color: "#1976d2" }} />,
   },
   {
+    to: "/news",
     title: "News",
-    icon: <AnnouncementIcon fontSize="large" />,
+    icon: <AnnouncementIcon fontSize="large" sx={{ color: "#ba000d" }} />,
   },
 ];

@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Toaster from "../components/Toaster";
 import Spinner from "./Spinner";
 import { hideToaster } from "../redux/layoutSlice";
-import Navbar from "./Navbar/Navbar";
+import { DrawerHeader } from "./Navbar/NavbarStyles";
+
 const Layout = (props) => {
   const dispatch = useDispatch();
   const { isToasterShow, toasterMessage, toasterStatus, isLoading } =
@@ -13,7 +14,7 @@ const Layout = (props) => {
   };
   return (
     <>
-      <Navbar />
+      <DrawerHeader />
       <div>{props.children}</div>
       <Toaster
         data-testid="spinner"

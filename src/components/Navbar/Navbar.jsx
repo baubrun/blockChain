@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { useTheme } from "@mui/material/styles";
 import { AppBar, DrawerHeader, Drawer } from "./NavbarStyles";
 import Box from "@mui/material/Box";
@@ -16,6 +18,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { navbarData } from "./navbar.data";
+import Routes from "../Routes";
 
 const MiniDrawer = () => {
   const theme = useTheme();
@@ -65,12 +68,16 @@ const MiniDrawer = () => {
         <List>
           {navbarData?.map((n, idx) => (
             <ListItem button key={idx}>
-              <ListItemIcon>{n.icon}</ListItemIcon>
+              <ListItemIcon>
+                <Link to={n.to}>{n.icon}</Link>
+              </ListItemIcon>
               <ListItemText primary={n.title} />
             </ListItem>
           ))}
         </List>
       </Drawer>
+      <DrawerHeader />
+      <Routes />
     </Box>
   );
 };
