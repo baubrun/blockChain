@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import data from "../data/coins.json";
 // import { useGetCurrencyQuery } from "../services/currency";
 import { readNum } from "../helper";
-import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
 import MediaCard from "./MediaCard";
 
 const Currencies = ({ snippet }) => {
@@ -37,11 +34,11 @@ const Currencies = ({ snippet }) => {
         {currencies?.map((c, idx) => (
           <Grid item key={idx} xs={12} md={6} lg={3}>
             <MediaCard
-              id={c.id}
               description={`<p>Price: ${readNum(c.price)}</p>\
                   <p>Market Cap: ${readNum(c.marketCap)}</p>\
                   <p>Price: ${readNum(c.change)}</p>`}
               image={c.iconUrl}
+              redirect={`/currencies/${c.id}`}
               title={`${c.rank}.${c.name}`}
             />
           </Grid>

@@ -1,63 +1,78 @@
 import React from "react";
+import data from "../data/coins.json";
+
 // import { useGetCurrencyQuery } from "../services/currency";
 // import Spinner from "../components/Spinner";
-// import { readNum } from "../helper";
-// import Currencies from "../components/Currencies";
+import { readNum } from "../helper";
+import Currencies from "../components/Currencies";
+import News from "../components/News";
 // import News from "../components/News";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 const Home = () => {
   //   const { data, error, isFetching } = useGetCurrencyQuery(4);
 
-  //   const stats = data?.data?.stats;
+  const stats = data?.data?.stats;
 
   return (
     <div>
-      <Grid container>
+      <Grid container mb={5}>
         <Grid item>
-          <Typography variant="h4">BlockChain Stats</Typography>
+          <Typography variant="h4">BlockChain Fun Facts</Typography>
         </Grid>
       </Grid>
-      {/* <Spinner isLoading={isFetching} size="default" />
-      <Typography  level={2}>
-        Block Chain Stats
-      </Typography>
-      <Row>
-        <Col span={12}>
-          <Typography data-testid="total-currencies" title="Total Currencies" value={stats?.total || 0} />
-        </Col>
-        <Col span={12}>
-          <Statistic
-            title="Total Market cap"
-            value={readNum(stats?.totalMarketCap)}
-          />
-        </Col>
-        <Col span={12}>
-          <Statistic
-            title="Total Markets"
-            value={readNum(stats?.totalMarkets)}
-          />
-        </Col>
-        <Col span={12}>
-          <Statistic
-            title="Total Exchanges"
-            value={readNum(stats?.totalExchanges)}
-          />
-        </Col>
-      </Row>
-      <div className="home-heading-container">
-        <Title level={2} className="home-title">
-          Popular currencies
-        </Title>
-      </div>
-      <Currencies snippet />
-      <div className="home-heading-container">
-        <Title level={2} className="home-title">
-          Currency News
-        </Title>
-      </div>
-      <News snippet /> */}
+
+      <Grid container rowSpacing={3} columnSpacing={{ xs: 12 }}>
+        <Grid item xs={6}>
+          <Box>
+            <Typography color="GrayText">Total Currencies</Typography>
+            <Typography variant="h6">{readNum(stats?.total)}</Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box>
+            <Typography color="GrayText">Total Market Cap</Typography>
+            <Typography variant="h6">
+              {readNum(stats?.totalMarketCap)}
+            </Typography>
+          </Box>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Box>
+            <Typography color="GrayText">Total Markets</Typography>
+            <Typography variant="h6">{readNum(stats?.totalMarkets)}</Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box>
+            <Typography color="GrayText">Total Exchanges</Typography>
+            <Typography variant="h6">
+              {readNum(stats?.totalExchanges)}
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+
+      <Grid container mt={5}>
+        <Grid item>
+          <Typography variant="h4">Poular Currencies</Typography>
+        </Grid>
+      </Grid>
+
+      <Grid container mt={5}>
+        <Grid item>
+          <Currencies snippet />
+        </Grid>
+      </Grid>
+
+      <Grid container mt={5}>
+        <Grid item>
+          <News />
+        </Grid>
+      </Grid>
     </div>
   );
 };

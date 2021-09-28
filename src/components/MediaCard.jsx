@@ -9,9 +9,9 @@ import HTMLReactParser from "html-react-parser";
 import { Link } from "react-router-dom";
 
 const MediaCard = (props) => {
-  const { title, description, image, id } = props;
+  const { title, description, image, redirect } = props;
   return (
-    <Card sx={{ maxWidth: 345 }} elevation={5}>
+    <Card sx={{ maxWidth: 345, height: 345 }} elevation={5}>
       <CardMedia
         sx={{ objectFit: "contain", paddingTop: 2 }}
         component="img"
@@ -19,9 +19,9 @@ const MediaCard = (props) => {
         image={image}
         alt={title}
       />
-      <CardContent sx={{ textAlign: "center" }}>
+      <CardContent sx={{ textAlign: "center", height: 200 }}>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {title.length > 25 ? `${title.substring(0, 100)}...` : title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {HTMLReactParser(description)}
@@ -29,7 +29,7 @@ const MediaCard = (props) => {
       </CardContent>
       <CardActions>
         <Link
-          to={`/currencies/${id}`}
+          to={redirect}
           style={{
             textDecoration: "none",
           }}
