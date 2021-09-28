@@ -1,0 +1,382 @@
+{
+    "_type": "News",
+    "readLink": "https://api.cognitive.microsoft.com/api/v7/news/search?q=cryptocurrency",
+    "queryContext": {
+        "originalQuery": "cryptocurrency",
+        "adultIntent": false
+    },
+    "totalEstimatedMatches": 36,
+    "sort": [{
+            "name": "Best match",
+            "id": "relevance",
+            "isSelected": true,
+            "url": "https://api.cognitive.microsoft.com/api/v7/news/search?q=cryptocurrency"
+        },
+        {
+            "name": "Most recent",
+            "id": "date",
+            "isSelected": false,
+            "url": "https://api.cognitive.microsoft.com/api/v7/news/search?q=cryptocurrency&sortby=date"
+        }
+    ],
+    "value": [{
+            "name": "Cryptocurrency exchange Huobi to clean up existing mainland clients by end-2021",
+            "url": "https://www.msn.com/en-ca/finance/topstories/cryptocurrency-exchange-huobi-to-clean-up-existing-mainland-clients-by-end-2021/ar-AAOPE4G",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.1QUdIK_Jla5qpITRE1lZPi&pid=News",
+                    "width": 700,
+                    "height": 366
+                }
+            },
+            "description": "Chinese cryptocurrency exchange Huobi Global said on Sunday it had stopped taking new mainland customers from Friday and would end contracts with mainland clients by the end of the year to comply with local regulations.",
+            "about": [{
+                "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9f417f89-9a37-e0d0-912e-99dccfb8982d",
+                "name": "Reuters"
+            }],
+            "mentions": [{
+                    "name": "Reuters"
+                },
+                {
+                    "name": "Clean-up"
+                },
+                {
+                    "name": "Cryptocurrency"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "Reuters on MSN.com",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.jFXbg3L7Ce_1pS4_IOR8CA&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T09:23:50.0000000Z",
+            "category": "World"
+        },
+        {
+            "name": "Cryptocurrency Update: 5 Cryptocoins Rise up to 800% in 24 Hours. Know More",
+            "url": "https://www.msn.com/en-in/money/news/cryptocurrency-update-5-crypto-coins-rise-up-to-over-700-in-24-hours-know-more/ar-AAOPRb1",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.tzcsdrYKPiK8DYxNcNc2EC&pid=News",
+                    "width": 700,
+                    "height": 367
+                }
+            },
+            "description": "The total crypto market volume over the last 24 hours is $109.43 billion, which makes a 12.30 per cent decrease. The total volume in DeFi is currently $16.82 billion, 15.37 per cent of the total crypto market 24-hour volume.",
+            "about": [{
+                "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fb02389-d247-4c86-8c96-c62e6b971397",
+                "name": "24 Hours"
+            }],
+            "mentions": [{
+                    "name": "24 Hours"
+                },
+                {
+                    "name": "Cryptocurrency"
+                },
+                {
+                    "name": "Currency"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "News18 on MSN.com",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.FPGiCjSpNWuR3YuGCSVHjA&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T13:20:10.0000000Z"
+        },
+        {
+            "name": "Bitcoin Price Today Above $42,000; Ether, Cardano Fall, Top Cryptocurrency Rates",
+            "url": "https://www.msn.com/en-in/money/news/bitcoin-price-today-above-dollar42000-ether-cardano-fall-top-cryptocurrency-rates/ar-AAOPsv4",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.zU-Rj3_R9SfUpIUNtbQa9C&pid=News",
+                    "width": 700,
+                    "height": 367
+                }
+            },
+            "description": "The global crypto market cap is $1.87 trillion, a 2.10 per cent decrease over the last day. The total crypto market volume over the last 24 hours is $94.71 billion.",
+            "about": [{
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/e6ba5905-926f-a0f5-2a10-86979222d886",
+                    "name": "Gerolamo Cardano"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2d95ee9c-a8a0-d6fa-69b7-f6d996f0c946",
+                    "name": "Bitcoin"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/52b11378-d75c-46c3-0f68-ccad1013e75f",
+                    "name": "Rates"
+                }
+            ],
+            "mentions": [{
+                    "name": "Gerolamo Cardano"
+                },
+                {
+                    "name": "Bitcoin"
+                },
+                {
+                    "name": "Rates"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "News18 on MSN.com",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.FPGiCjSpNWuR3YuGCSVHjA&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T04:55:27.0000000Z",
+            "category": "Business"
+        },
+        {
+            "name": "Cryptocurrency price live – Pi Network allows users to mine crypto on phone as Bitcoin tumbles following China news",
+            "url": "https://www.thesun.co.uk/money/16190561/cryptocurrency-bitcoin-prices-mining-china-pi-market-shiba-inu/",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.R1oZPYQ4TZ-VMDp5y1zdJS&pid=News",
+                    "width": 700,
+                    "height": 466
+                }
+            },
+            "description": "PI Network claims to be the first and only digital currency that you can mine on your phone as Bitcoin tumbles following China’s new regulations. Through a complex computer programme, Pi",
+            "about": [{
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5fcc3d97-0cf2-94e5-6dad-cd70e387bd69",
+                    "name": "China"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/f345cd81-66c9-7bd1-abb2-e6be5e464548",
+                    "name": "pi"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2d95ee9c-a8a0-d6fa-69b7-f6d996f0c946",
+                    "name": "Bitcoin"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "The Sun",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.mZZguWnkRkVFPCoaQUmKEg&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T22:01:00.0000000Z"
+        },
+        {
+            "name": "Here’s Why Most People Who Buy Bitcoin Hold Onto It",
+            "url": "https://bitcoinmagazine.com/culture/bitcoin-investors-long-term-hodl",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.1tMLiZ9vuLFYOATX7HGKgi&pid=News",
+                    "width": 700,
+                    "height": 375
+                }
+            },
+            "description": "Bitcoin has emerged as a new investment front. Although bitcoin adoption is a work in progress, it has numerous uses. Some investors hold bitcoin for profits, while others use cryptocurrencies for online transactions.",
+            "about": [{
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2d95ee9c-a8a0-d6fa-69b7-f6d996f0c946",
+                    "name": "Bitcoin"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/7962ae3c-46a4-a659-f7d6-da89a0bb18c5",
+                    "name": "Investor"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "Bitcoin Magazine",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.c9Wdtw8yGXtQqXqrmu7efA&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-27T01:00:00.0000000Z",
+            "category": "ScienceAndTechnology"
+        },
+        {
+            "name": "US regulators racing toward first major rules on cryptocurrency",
+            "url": "https://economictimes.indiatimes.com/markets/cryptocurrency/regulators-racing-toward-first-major-rules-on-cryptocurrency/articleshow/86531309.cms",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.LiF9ogQJ7HpPt21VI4LcyS&pid=News",
+                    "width": 700,
+                    "height": 379
+                }
+            },
+            "description": "Concerned about the potential for a digital-era bank run, the US Treasury Department is working on an oversight framework for the fast-growing sector.",
+            "about": [{
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c8dfebad-4209-b5c5-806d-7d34444dc344",
+                    "name": "The Economic Times"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/b9f65d8e-c821-d701-5e54-53060d9fa566",
+                    "name": "Major"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "India Times",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.ajXT0U6_LaErmc8AT6Kh3Q&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T13:55:00.0000000Z",
+            "category": "Business"
+        },
+        {
+            "name": "Cryptocurrency: a nuanced discussion",
+            "url": "https://bigthink.com/the-present/cryptocurrency/",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.Xljm86WK-Cr4WRQGoWHsoi&pid=News",
+                    "width": 700,
+                    "height": 393
+                }
+            },
+            "description": "Nuance is difficult to find. In the hope of providing that nuance, let’s look at the best arguments from the proponents and the cynics. Blockchain is essentially a digital ledger. The ledger is kept secure through a combination of techniques from cryptography,",
+            "about": [{
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2879a5fd-e2aa-ef4d-7a33-aa8abe8701f3",
+                    "name": "Debate"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/4d57f5bf-e513-467a-90e6-b18a96600e37",
+                    "name": "Cryptocurrency"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "Big Think",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.yBNYvguejMgaGAPX2oVpBw&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T12:55:00.0000000Z",
+            "category": "ScienceAndTechnology"
+        },
+        {
+            "name": "A Bitcoin miner is buying power plants to mine crypto now",
+            "url": "https://www.msn.com/en-us/finance/markets/a-bitcoin-miner-is-buying-power-plants-to-mine-crypto-now/ar-AAOQClq",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.-oiBtGQ0ycCmJ0iUIRwlDy&pid=News",
+                    "width": 700,
+                    "height": 393
+                }
+            },
+            "description": "A Bitcoin mining company is buying up power plants and burning coal in order to maximize their cryptocurrency earnings.",
+            "about": [{
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2d95ee9c-a8a0-d6fa-69b7-f6d996f0c946",
+                    "name": "Bitcoin"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5e2630b9-bd24-c7d6-f6fb-f4728d55607f",
+                    "name": "Purchasing power"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/8f4659b9-482f-4499-bc1a-c046b45f9dfc",
+                    "name": "Miner"
+                }
+            ],
+            "mentions": [{
+                    "name": "Bitcoin"
+                },
+                {
+                    "name": "Purchasing power"
+                },
+                {
+                    "name": "Miner"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "Mashable on MSN.com",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.tfB_goYOslaBqaikd8wc5A&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T23:10:00.0000000Z",
+            "category": "ScienceAndTechnology"
+        },
+        {
+            "name": "Bitcoin Exchanges Bar Chinese Users Following Ban",
+            "url": "https://www.pymnts.com/cryptocurrency/2021/bitcoin-exchanges-bar-chinese-users-following-ban/",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.v9hqT0PHn5xJMQibka_67i&pid=News",
+                    "width": 700,
+                    "height": 420
+                }
+            },
+            "description": "Two of the world’s biggest bitcoin exchanges have stopped taking users from China in the wake of that country’s complete ban on cryptocurrency, Bloomberg reported. Both Huobi and Binance have ceased accepting new registrations from Chinese users,",
+            "about": [{
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5fcc3d97-0cf2-94e5-6dad-cd70e387bd69",
+                    "name": "China"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/b04d9156-2220-1430-867a-b1689010ccf2",
+                    "name": "Bar, Rutog County"
+                },
+                {
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/4d57f5bf-e513-467a-90e6-b18a96600e37",
+                    "name": "Cryptocurrency"
+                }
+            ],
+            "provider": [{
+                "_type": "Organization",
+                "name": "pymnts.com",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.ZhnOyJIg9W8bTWQqzZklgA&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T21:20:00.0000000Z",
+            "category": "ScienceAndTechnology"
+        },
+        {
+            "name": "Cryptocurrency: The good, the bad and the ugly",
+            "url": "https://insideretail.com.au/technology/cryptocurrency-the-good-the-bad-and-the-ugly-202109",
+            "image": {
+                "thumbnail": {
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.4cGN8vwvYTjW4t_ycyVtbi&pid=News",
+                    "width": 700,
+                    "height": 388
+                }
+            },
+            "description": "With over 4000 cryptocurrencies in the market, major brands are starting to take notice. But is cryptocurrency the way of the future or a flash in the pan?",
+            "about": [{
+                "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/4d57f5bf-e513-467a-90e6-b18a96600e37",
+                "name": "Cryptocurrency"
+            }],
+            "provider": [{
+                "_type": "Organization",
+                "name": "insideretail.com.au",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ODF.Qy_PNZDZZmCMhYXWqErVJw&pid=news"
+                    }
+                }
+            }],
+            "datePublished": "2021-09-26T21:12:00.0000000Z",
+            "category": "ScienceAndTechnology"
+        }
+    ]
+}
