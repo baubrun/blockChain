@@ -67,7 +67,11 @@ const Home = () => {
           <Currencies snippet />
         </Grid>
       </Grid>
-
+      <Grid container mt={5}>
+        <Grid item>
+          <Typography variant="h4">News</Typography>
+        </Grid>
+      </Grid>
       <Grid container mt={5}>
         <Grid item>
           <News />

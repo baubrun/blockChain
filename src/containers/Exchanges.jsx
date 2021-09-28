@@ -1,30 +1,36 @@
 import React from "react";
-import millify from "millify";
 // import { Collapse, Row, Col, Typography, Avatar } from "antd";
 import HTMLReactParser from "html-react-parser";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+
 import data from "../data/exchanges.json";
 // import { useGetExchangesQuery } from "../services/currency";
 // import Spinner from "../components/Spinner";
-
-// const { Text } = Typography;
-// const { Panel } = Collapse;
 
 const Exchanges = () => {
   // const { data, isFetching } = useGetExchangesQuery("");
   // const exchangesList = data?.data?.exchanges;
 
   return (
-    <>
-      <div>Exchanges</div>
+    <Grid>
       {/* <Spinner isLoading={isFetching} size="default" /> */}
 
+      <Grid container>
+        <Grid item xs={3}>
+          <Typography>Exchanges</Typography>
+        </Grid>
+        <Grid item xs={3}>
+          <Typography>24h Trade Volume</Typography>
+        </Grid>
+        <Grid item xs={3}>
+          <Typography>Markets</Typography>
+        </Grid>
+        <Grid item xs={3}>
+          <Typography>Change</Typography>
+        </Grid>
+      </Grid>
       {/* <Row>
-        <Col span={6}>Exchanges</Col>
-        <Col span={6}>24h Trade Volume</Col>
-        <Col span={6}>Markets</Col>
-        <Col span={6}>Change</Col>
-      </Row>
-      <Row>
         {exchangesList?.map((exchange, idx) => (
           <Col key={idx} span={24}>
             <Collapse>
@@ -57,7 +63,7 @@ const Exchanges = () => {
           </Col>
         ))}
       </Row> */}
-    </>
+    </Grid>
   );
 };
 

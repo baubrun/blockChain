@@ -5,6 +5,8 @@ import coinData from "../data/coins.json";
 import Grid from "@mui/material/Grid";
 import MediaCard from "./MediaCard";
 import newsDefault from "../images/news.png";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import moment from "moment";
 
 const News = ({ snippet }) => {
   const [category, setCategory] = useState("cryptocurrency");
@@ -28,15 +30,20 @@ const News = ({ snippet }) => {
       )} */}
       <Grid container spacing={2}>
         {newsData?.value?.map((n, idx) => (
-          <Grid item key={idx} xs={12} md={4}>
+          <Grid item key={idx} xs={12} md={3}>
             <MediaCard
               description={
                 n.description.length > 100
                   ? `${n.description.substring(0, 100)}...`
                   : n.description
               }
+              date={moment(n?.datePublished).startOf("seconds").fromNow()}
               image={n?.image?.thumbnail?.contentUrl || newsDefault}
-              redirect={n.url}
+              redirect={n?.url}
+              provider={[
+                n.provider[0]?.name,
+                n.provider[0]?.image?.thumbnail?.contentUrl || null,
+              ]}
               title={n.name}
             />
           </Grid>
