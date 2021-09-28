@@ -14,7 +14,7 @@ const Layout = (props) => {
   };
   return (
     <>
-      <DrawerHeader />
+      <DrawerHeader sx={{ marginTop: 2 }} />
       <div>{props.children}</div>
       <Toaster
         data-testid="spinner"
