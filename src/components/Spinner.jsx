@@ -6,7 +6,7 @@ const Spinner = ({ isLoading }) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (isLoading) setOpen(isLoading);
+    setOpen(isLoading);
   }, [isLoading]);
 
   const handleClose = () => {
@@ -20,7 +20,7 @@ const Spinner = ({ isLoading }) => {
       open={open}
       onClick={handleClose}
     >
-      <CircularProgress color="primary" />
+      <CircularProgress color="secondary" size={100} />
     </Backdrop>
   );
 };

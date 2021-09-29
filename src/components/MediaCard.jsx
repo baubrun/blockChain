@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -8,12 +9,20 @@ import Typography from "@mui/material/Typography";
 import HTMLReactParser from "html-react-parser";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-
 const MediaCard = (props) => {
   const { title, description, image, redirect, provider, date } = props;
 
+  const learnMore = () => (
+    <Button size="small">
+      <Typography sx={{ color: "#78909c" }}>Learn More</Typography>
+    </Button>
+  );
+
   return (
-    <Card sx={{ maxWidth: 345, height: 400 }} elevation={5}>
+    <Card
+      sx={{ maxWidth: 345, height: 400, backgroundColor: "primary.light" }}
+      elevation={5}
+    >
       <CardMedia
         sx={{ objectFit: "contain", paddingTop: 2 }}
         component="img"
@@ -32,16 +41,28 @@ const MediaCard = (props) => {
         <Box mx={2}>
           <Typography>{date}</Typography>
         </Box>
-        <a
-          href={redirect}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            textDecoration: "none",
-          }}
-        >
-          <Button size="small">Learn More</Button>
-        </a>
+
+        {redirect?.startsWith("/currencies") ? (
+          <Link
+            to={redirect}
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            {learnMore()}
+          </Link>
+        ) : (
+          <a
+            href={redirect}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            {learnMore()}
+          </a>
+        )}
       </CardActions>
     </Card>
   );

@@ -15,14 +15,15 @@ const layoutSlice = createSlice({
       state.isLoading = false;
     },
     showLoader: (state, action) => {
-      state.isLoading = true;
+      state.isLoading = action.payload;
     },
     hideToaster: (state) => {
       state.isToasterShow = false;
     },
     showToaster: (state, action) => {
+      console.log(`action :>>`, action);
       state.isToasterShow = true;
-      state.toasterMessage = action.payload?.message;
+      state.toasterMessage = action.payload?.message?.data?.message;
       state.toasterStatus = action.payload?.status;
     },
   },

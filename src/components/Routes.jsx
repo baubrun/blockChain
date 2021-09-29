@@ -17,7 +17,7 @@ const Routes = () => {
         <Route exact path="/currencies/:coinId">
           <CurrencyDetail />
         </Route>
-        <Route exact path="/exchange">
+        <Route exact path="/exchanges">
           <Exchanges />
         </Route>
         <Route exact path="/news">

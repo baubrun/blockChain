@@ -1,20 +1,31 @@
-import React from "react";
-import data from "../data/coins.json";
-
-// import { useGetCurrencyQuery } from "../services/currency";
-// import Spinner from "../components/Spinner";
-import { readNum } from "../helper";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Currencies from "../components/Currencies";
 import News from "../components/News";
-// import News from "../components/News";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { readNum } from "../helper";
+import { useGetCurrencyQuery } from "../services/currency";
+import { showLoader, showToaster } from "../redux/layoutSlice";
+import { STATUS_ERROR } from "../constants/layout";
 
 const Home = () => {
-  //   const { data, error, isFetching } = useGetCurrencyQuery(4);
+  const dispatch = useDispatch();
+  const { data, error, isFetching, isError } = useGetCurrencyQuery(4);
 
   const stats = data?.data?.stats;
+
+  useEffect(() => {
+    dispatch(showLoader(isFetching));
+  }, [isFetching]);
+
+  useEffect(() => {
+    if (isError)
+      dispatch(showToaster({ message: error, status: STATUS_ERROR }));
+  }, [isError]);
+
+  if (isFetching) return null;
 
   return (
     <div>
@@ -58,12 +69,12 @@ const Home = () => {
 
       <Grid container mt={5}>
         <Grid item>
-          <Typography variant="h4">Poular Currencies</Typography>
+          <Typography variant="h4">Popular Currencies</Typography>
         </Grid>
       </Grid>
 
       <Grid container mt={5}>
-        <Grid item>
+        <Grid item xs={12}>
           <Currencies snippet />
         </Grid>
       </Grid>
@@ -73,8 +84,8 @@ const Home = () => {
         </Grid>
       </Grid>
       <Grid container mt={5}>
-        <Grid item>
-          <News />
+        <Grid item xs={12}>
+          <News snippet />
         </Grid>
       </Grid>
     </div>

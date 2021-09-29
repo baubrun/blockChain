@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import HTMLReactParser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import TimelineIcon from "@mui/icons-material/Timeline";
@@ -9,29 +10,67 @@ import CelebrationIcon from "@mui/icons-material/Celebration";
 import WineBarIcon from "@mui/icons-material/WineBar";
 import StopCircleOutlinedIcon from "@mui/icons-material/StopCircleOutlined";
 import FlashOnOutlinedIcon from "@mui/icons-material/FlashOnOutlined";
-
-import data from "../data/coinDetail.json";
-import coinHistory from "../data/coinHistory.json";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { showLoader, showToaster } from "../redux/layoutSlice";
+import Dropdown from "../components/Dropdown";
 import {
   useGetCurrencyDetailsQuery,
   useGetCurrencyHistoryQuery,
 } from "../services/currency";
-import Spinner from "../components/Spinner";
-import LineChart from "../components/LineChart";
+import LineChart from "../components/LineChart/LineChart";
 import { readNum } from "../helper";
+import { STATUS_ERROR } from "../constants/layout";
 
 const CurrencyDetails = () => {
+  const dispatch = useDispatch();
   const { coinId } = useParams();
   const [timeframe, setTimeframe] = useState("7d");
-  // const { data, isFetching } = useGetCurrencyDetailsQuery(coinId);
-  // const { data: coinHistory } = useGetCurrencyHistoryQuery({
-  // coinId,
-  // timeframe,
-  // });
-  const currencyDetails = data?.data?.coin;
+  const {
+    data: currency,
+    isFetching,
+    isError,
+    error,
+  } = useGetCurrencyDetailsQuery(coinId);
+  const {
+    data: coinHistory,
+    isFetching: isFetching2,
+    isError: isError2,
+    error: error2,
+  } = useGetCurrencyHistoryQuery({
+    coinId,
+    timeframe,
+  });
+  const currencyDetails = currency?.data?.coin;
 
-  const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
+  useEffect(() => {
+    dispatch(showLoader(isFetching));
+  }, [isFetching]);
 
+  useEffect(() => {
+    dispatch(showLoader(isFetching2));
+  }, [isFetching2]);
+
+  useEffect(() => {
+    if (isError) {
+      dispatch(showToaster({ message: error, status: STATUS_ERROR }));
+    }
+  }, [isError]);
+
+  useEffect(() => {
+    if (isError2) {
+      dispatch(showToaster({ message: error2, status: STATUS_ERROR }));
+    }
+  }, [isError2]);
+
+  const time = [
+    { date: "24h" },
+    { date: "7d" },
+    { date: "30d" },
+    { date: "1y" },
+    { date: "5y" },
+  ];
   const stats = [
     {
       title: "Price to USD",
@@ -88,102 +127,152 @@ const CurrencyDetails = () => {
     },
   ];
 
+  if (isFetching || isFetching2) return null;
+
   return (
-    <div>cd</div>
-    // <Col className="coin-detail-container">
-    //   <Spinner isLoading={isFetching} size="default" />
-    //   <Col className="coin-heading-container">
-    //     <Title level={2} className="coin-name">
-    //       {data?.data?.coin?.name} ({data?.data?.coin.slug}) Price
-    //     </Title>
-    //     <p>
-    //       {currencyDetails?.name} live price in US Dollar (USD). View value
-    //       statistics, market cap and supply.
-    //     </p>
-    //   </Col>
-    //   <Select
-    //     defaultValue="7d"
-    //     className="select-timeperiod"
-    //     placeholder="Select Timeperiod"
-    //     onChange={(value) => setTimeframe(value)}
-    //   >
-    //     {time.map((date, idx) => (
-    //       <Option key={idx} value={date}>
-    //         {date}
-    //       </Option>
-    //     ))}
-    //   </Select>
-    //   <LineChart
-    //     coinHistory={coinHistory}
-    //     currentPrice={readNum(currencyDetails?.price)}
-    //     coinName={currencyDetails?.name}
-    //   />
-    //   <Col className="stats-container">
-    //     <Col className="coin-value-statistics">
-    //       <Col className="coin-value-statistics-heading">
-    //         <Title level={3} className="coin-details-heading">
-    //           {currencyDetails?.name} Value Statistics
-    //         </Title>
-    //         <p>
-    //           An overview showing the statistics of {currencyDetails?.name},
-    //           such as the base and quote currency, the rank, and trading volume.
-    //         </p>
-    //       </Col>
-    //       {stats.map(({ icon, title, value }, idx) => (
-    //         <Col key={idx} className="coin-stats">
-    //           <Col className="coin-stats-name">
-    //             <Text>{icon}</Text>
-    //             <Text>{title}</Text>
-    //           </Col>
-    //           <Text className="stats">{value}</Text>
-    //         </Col>
-    //       ))}
-    //     </Col>
-    //     <Col className="other-stats-info">
-    //       <Col className="coin-value-statistics-heading">
-    //         <Title level={3} className="coin-details-heading">
-    //           Other Stats Info
-    //         </Title>
-    //         <p>
-    //           An overview showing the statistics of {currencyDetails?.name},
-    //           such as the base and quote currency, the rank, and trading volume.
-    //         </p>
-    //       </Col>
-    //       {genericStats.map(({ icon, title, value }, idx) => (
-    //         <Col key={idx} className="coin-stats">
-    //           <Col className="coin-stats-name">
-    //             <Text>{icon}</Text>
-    //             <Text>{title}</Text>
-    //           </Col>
-    //           <Text className="stats">{value}</Text>
-    //         </Col>
-    //       ))}
-    //     </Col>
-    //   </Col>
-    //   <Col className="coin-desc-link">
-    //     <Row className="coin-desc">
-    //       <Title level={3} className="coin-details-heading">
-    //         What is {currencyDetails?.name}?
-    //       </Title>
-    //       {HTMLReactParser(currencyDetails?.description || "")}
-    //     </Row>
-    //     <Col className="coin-links">
-    //       <Title level={3} className="coin-details-heading">
-    //         {currencyDetails?.name} Links
-    //       </Title>
-    //       {currencyDetails?.links?.map((link, idx) => (
-    //         <Row className="coin-link" key={idx}>
-    //           <Title level={5} className="link-name">
-    //             {link.type}
-    //           </Title>
-    //           <a href={link.url} target="_blank" rel="noreferrer">
-    //             {link.name}
-    //           </a>
-    //         </Row>
-    //       ))}
-    //     </Col>
-    //   </Col>
-    // </Col>
+    <>
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid item>
+          <Typography
+            variant="h2"
+            color="secondary"
+            sx={{ textTransform: "uppercase" }}
+          >
+            {`${currencyDetails?.name} (${currencyDetails?.slug}) Price`}
+          </Typography>
+          <Typography sx={{ textAlign: "center" }}>
+            {`${currencyDetails?.name} live price in US Dollar (USD)`}
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Grid container justifyContent="center" alignItems="center" my={5}>
+        <Grid item xs={6}>
+          <Dropdown
+            onChange={setTimeframe}
+            value={timeframe}
+            items={time}
+            menuVal="date"
+            label="History"
+          />
+        </Grid>
+      </Grid>
+      {/* line chart */}
+      <Box sx={{ width: "90vw" }}>
+        <LineChart
+          coinHistory={coinHistory}
+          currentPrice={readNum(currencyDetails?.price)}
+          coinName={currencyDetails?.name}
+        />
+      </Box>
+      {/* stats row */}
+      <Grid container spacing={4}>
+        <Grid item xs={6}>
+          <Typography color="secondary" variant="h5" mt={2}>
+            {`${currencyDetails?.name} Value Statistics`}
+          </Typography>
+          <Typography>
+            {`An overview showing the statistics of ${currencyDetails?.name}, \
+          such as its base, quote currency, the rank, and trading volume.`}
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography color="secondary" variant="h5" mt={2}>
+            Other Stats Info
+          </Typography>
+          <Typography>{`Other ${currencyDetails?.name} stats.`}</Typography>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item xs={6}>
+          {stats?.map((s, idx) => (
+            <Grid
+              container
+              item
+              key={idx}
+              justifyContent="space-between"
+              alignItems="center"
+              my={2}
+            >
+              <Grid item>
+                {s.icon} {s.title}
+              </Grid>
+              <Grid item xs={6}>
+                {s.value}
+              </Grid>
+            </Grid>
+          ))}
+        </Grid>
+        <Grid item xs={6}>
+          {genericStats?.map((s, idx) => (
+            <Grid
+              container
+              item
+              key={idx}
+              justifyContent="space-between"
+              alignItems="center"
+              my={2}
+            >
+              <Grid item>
+                {s.icon} {s.title}
+              </Grid>
+              <Grid item xs={6}>
+                {s.value}
+              </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+      {/* info row */}
+      <Grid container spacing={4}>
+        <Grid item xs={6}>
+          <Typography color="secondary" variant="h5" mt={2}>
+            {`What is ${currencyDetails?.name}?`}
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography color="secondary" variant="h5" mt={2}>
+            {`${currencyDetails?.name} Links`}
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={4}>
+        <Grid item xs={6}>
+          {HTMLReactParser(currencyDetails?.description || "")}
+        </Grid>
+
+        <Grid item xs={6}>
+          {currencyDetails?.links?.map((link, idx) => (
+            <Grid container item key={idx}>
+              <Grid container item justifyContent="space-evenly">
+                <Grid item xs={6} sx={{ marginTop: 5 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ textTransform: "capitalize" }}
+                    color="primary"
+                  >
+                    {link.type}
+                  </Typography>
+                </Grid>
+                <Grid item xs={6} sx={{ marginTop: 5 }}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Typography variant="h5" color="secondary">
+                      {link.name}
+                    </Typography>
+                  </a>
+                </Grid>
+              </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+    </>
   );
 };
 

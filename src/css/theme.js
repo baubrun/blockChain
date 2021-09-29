@@ -4,15 +4,15 @@ const customTheme = createTheme({
   palette: {
     primary: {
       dark: "#4b636e",
-      light: "#a7c0cd",
+      light: "#cedce3",
       main: "#78909c",
       contrastText: "#fafafa",
     },
     secondary: {
-      light: "#6ff9ff",
-      main: "#26c6da",
-      dark: "#0095a8",
-      contrastText: "#000000",
+      light: "#Light",
+      main: "#5c6bc0",
+      dark: "#26418f",
+      contrastText: "#ffffff",
     },
   },
 });

@@ -11,7 +11,6 @@ const App = () => {
     <div>
       <Layout>
         <Navbar />
-        <div>adsf</div>
       </Layout>
     </div>
   );

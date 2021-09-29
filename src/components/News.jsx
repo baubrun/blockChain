@@ -1,33 +1,54 @@
 import React, { useState, useEffect } from "react";
-import newsDataJson from "../data/news.json";
-import coinData from "../data/coins.json";
-// import { useGetCurrencyQuery } from "../services/currency";
+import { useDispatch } from "react-redux";
 import Grid from "@mui/material/Grid";
 import MediaCard from "./MediaCard";
 import newsDefault from "../images/news.png";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
 import moment from "moment";
-
+import { showLoader, showToaster } from "../redux/layoutSlice";
+import { useGetNewsQuery } from "../services/news";
+import { useGetCurrencyQuery } from "../services/currency";
+import Dropdown from "./Dropdown";
+import { STATUS_ERROR } from "../constants/layout";
 const News = ({ snippet }) => {
+  const dispatch = useDispatch();
   const [category, setCategory] = useState("cryptocurrency");
-  // const {
-  // data: newsData,
-  // isFetching,
-  // } = useGetNewsQuery({ category, count: snippet ? 10 : 100 });
-  // const {data: coinData} = useGetNewsQuery({category: "cryptocurrency", count: snippet ? 10 : 100})
-  const cd = coinData;
-  const newsData = newsDataJson;
+  const viewCount = snippet ? 4 : 100;
+  const {
+    data: newsData,
+    isFetching,
+    isError,
+    error,
+  } = useGetNewsQuery({
+    category,
+    count: viewCount,
+  });
+  const { data: coinData } = useGetCurrencyQuery(viewCount);
+
+  useEffect(() => {
+    dispatch(showLoader(isFetching));
+  }, [isFetching]);
+
+  useEffect(() => {
+    if (isError) {
+      dispatch(showToaster({ message: error, status: STATUS_ERROR }));
+    }
+  }, [isError]);
 
   return (
-    <div style={{ position: "relative" }}>
-      {/* {!snippet && (
-        <div className="search">
-          <Input
-            placeholder="SEARCH"
-            onChange={(evt) => setSearchTerm(evt.target.value.toLowerCase())}
-          />
-        </div>
-      )} */}
+    <>
+      {!snippet && (
+        <Grid container justifyContent="center" alignItems="center" my={5}>
+          <Grid item xs={4}>
+            <Dropdown
+              onChange={setCategory}
+              value={category}
+              items={coinData?.data?.coins}
+              menuVal="name"
+              label="Category"
+            />
+          </Grid>
+        </Grid>
+      )}
       <Grid container spacing={2}>
         {newsData?.value?.map((n, idx) => (
           <Grid item key={idx} xs={12} md={3}>
@@ -49,7 +70,7 @@ const News = ({ snippet }) => {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </>
   );
 };
 

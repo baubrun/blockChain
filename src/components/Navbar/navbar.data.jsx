@@ -14,7 +14,7 @@ export const navbarData = [
   {
     to: "/currencies",
     title: "Currencies",
-    icon: <MonetizationOnIcon fontSize="large" sx={{ color: "#00cc66" }} />,
+    icon: <MonetizationOnIcon fontSize="large" sx={{ color: "#ff9933" }} />,
   },
   {
     to: "/exchanges",
