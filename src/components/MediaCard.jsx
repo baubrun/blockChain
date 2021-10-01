@@ -20,7 +20,12 @@ const MediaCard = (props) => {
 
   return (
     <Card
-      sx={{ maxWidth: 345, height: 400, backgroundColor: "primary.light" }}
+      sx={{
+        minWidth: 345,
+        maxWidth: 345,
+        height: 400,
+        backgroundColor: "primary.light",
+      }}
       elevation={5}
     >
       <CardMedia

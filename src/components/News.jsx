@@ -9,6 +9,7 @@ import { useGetNewsQuery } from "../services/news";
 import { useGetCurrencyQuery } from "../services/currency";
 import Dropdown from "./Dropdown";
 import { STATUS_ERROR } from "../constants/layout";
+
 const News = ({ snippet }) => {
   const dispatch = useDispatch();
   const [category, setCategory] = useState("cryptocurrency");
@@ -37,7 +38,13 @@ const News = ({ snippet }) => {
   return (
     <>
       {!snippet && (
-        <Grid container justifyContent="center" alignItems="center" my={5}>
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          my={5}
+          sx={{ width: "100vw" }}
+        >
           <Grid item xs={4}>
             <Dropdown
               onChange={setCategory}
@@ -51,7 +58,7 @@ const News = ({ snippet }) => {
       )}
       <Grid container spacing={2}>
         {newsData?.value?.map((n, idx) => (
-          <Grid item key={idx} xs={12} md={3}>
+          <Grid item key={idx} xs={12} md={4}>
             <MediaCard
               description={
                 n.description.length > 100

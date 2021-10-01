@@ -6,7 +6,6 @@ import TextField from "@mui/material/TextField";
 import MediaCard from "./MediaCard";
 import { Typography } from "@mui/material";
 import { showLoader, showToaster } from "../redux/layoutSlice";
-// import data from "../data/coins.json";
 import { useGetCurrencyQuery } from "../services/currency";
 import { STATUS_ERROR } from "../constants/layout";
 
@@ -41,22 +40,32 @@ const Currencies = ({ snippet }) => {
   return (
     <>
       {!snippet && (
-        <Grid container justifyContent="center" alignItems="center" my={5}>
-          <Grid item>
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          my={5}
+          sx={{ width: "100vw" }}
+        >
+          <Grid item xs={4}>
             <TextField
               placeholder="SEARCH"
               onChange={(evt) =>
                 setSearchTerm(evt?.target?.value?.toLowerCase())
               }
               variant="outlined"
-              sx={{ borderColor: "primary.light" }}
+              sx={{ borderColor: "primary.light", width: 350 }}
               value={searchTerm}
             />
           </Grid>
         </Grid>
       )}
       {currencies?.length < 1 && (
-        <Grid container sx={{ left: "50%", top: "50%" }}>
+        <Grid
+          container
+          sx={{ left: "50%", top: "50%" }}
+          justifyContent="center"
+        >
           <Grid item>
             <Typography color="primary" variant="h5">
               CURRENCY NOT FOUND.
