@@ -45,7 +45,7 @@ const Exchanges = () => {
   if (isFetching) return null;
 
   return (
-    <Paper sx={{ width: "100%", overflow: "auto" }}>
+    <Paper sx={{ width: "100%" }}>
       <TableContainer sx={{ maxHeight: 700 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
